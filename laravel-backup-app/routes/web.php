@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+use App\Http\Controllers\DatabaseBackupController;
+
+Route::get('database-backup', [DatabaseBackupController::class, 'backup'])->name('database.backup');
