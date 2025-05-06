@@ -1,21 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\DatabaseBackupController;
 
 Route::get('/', function () {
     return view('welcome');
 });
-use App\Http\Controllers\DatabaseBackupController;
 
-Route::get('database-backup', [DatabaseBackupController::class, 'backup'])->name('database.backup');
+Route::get('/database-backup', [DatabaseBackupController::class, 'backup'])->name('database.backup');
+Route::view('/backup-ui', 'backup');
