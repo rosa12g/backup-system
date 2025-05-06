@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\View;
 
 class DatabaseBackupController extends Controller
 {
-    // Existing backup method (unchanged)
+ 
     public function backup()
     {
         $host = env('DB_HOST', '127.0.0.1');
@@ -20,7 +20,7 @@ class DatabaseBackupController extends Controller
         $backupDir = storage_path('app/backups');
 
         if (!File::exists($backupDir)) {
-            File::makeDirectory($backupDir, 0755, true); // Changed permission to 0755 for security
+            File::makeDirectory($backupDir, 0755, true); 
         }
 
         $backupFile = $backupDir . '/' . $database . '_' . now()->format('Y-m-d_H-i-s') . '.sql';
